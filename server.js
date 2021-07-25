@@ -1,7 +1,9 @@
 // DB Connection
+require("./config/db.connection");
 
 // external modules 
 const express = require("express");
+
 
 // instance express package
 const app = express();
