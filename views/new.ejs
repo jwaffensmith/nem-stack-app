@@ -15,7 +15,7 @@
 </head>
 <body>
      <header>
-        <h1> Add a New Hike Page</h1>
+        <h1> Add a New Hike</h1>
     </header>
     <Main>
         <section>
@@ -60,22 +60,26 @@
                       <input 
                         type="number" 
                         class="input" 
+                        step="0.01"
                         placeholder="Hike length" 
-                        name="location" 
+                        name="length" 
                         id="hike-length">
+                        <span>Miles</span>
                 </div>
                <label for="hike-elevation" class="label">Hike Elevation Gain</label>
                 <div class="field">
                       <input 
                         type="number" 
                         class="input" 
+                        step="0.01"
                         placeholder="Hike Elevation Gain" 
                         name="elevationGain" 
                         id="hike-elevation">
+                        <span>Miles</span>
                 </div>
+                <input type="submit" value="submit"></input>
             </form>
         </section>
-        <button>Add Hike</button>
     </Main>
 </body>
 </html>

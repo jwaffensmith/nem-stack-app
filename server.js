@@ -23,8 +23,12 @@ app.use(methodOverride('_method'));
 
 // Routes
 
+app.get("/", function (req,res){
+    res.redirect("./hikes");
+});
+
 // Index GET 
-app.get("/", function(req, res) {
+app.get("/hikes", function(req, res) {
     Hike.find({}, function (error, allHikes) {
         if (error) {
             console.log(error);
@@ -41,12 +45,16 @@ app.get("/", function(req, res) {
 // New GET /new
 // use should be able to add a new hike
 
-app.get("/new", function (req, res) {
+app.get("/hikes/new", function (req, res) {
     return res.render("new");
 });
 
 // Create POST /hikes
 // new hike should then post to page
+app.post("/hikes", function (req, res, next) {
+    console.log(req.body)
+    res.send("hitting create route");
+  });
 
 // Show GET /hikes/:id
 // show individual hikes once clicked

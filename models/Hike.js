@@ -4,9 +4,17 @@ const mongoose = require("mongoose");
 // schema
 
 const hikeSchema = new mongoose.Schema({
+    image: {
+        type: String,
+        default: "https://cdn.pixabay.com/photo/2018/10/13/15/10/mountain-3744351_960_720.jpg"
+    },
     hikeName: {
         type: String,
         required: [true, "Please enter the name of the hike."]
+    },
+    location: {
+        type: String,
+        required: [true, "Please enter the location of the hike"]
     },
     length: {
         type: Number,
@@ -14,14 +22,6 @@ const hikeSchema = new mongoose.Schema({
     },
     elevationGain: {
         type: Number,
-    },
-    location: {
-        type: String,
-        required: [true, "Please enter the location of the hike"]
-    },
-    image: {
-        type: String,
-        default: "https://cdn.pixabay.com/photo/2018/10/13/15/10/mountain-3744351_960_720.jpg"
     },
 },
 {
