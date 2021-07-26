@@ -18,10 +18,25 @@
         <h1> Hiking Adventure </h1>
     </header>
     <Main>
-        <a href="/hikes/new">
-            <input type="submit" value="Click Here to Add a Hike" />
+        <a href="/hikes">
+            <input type="submit" value="Back to Homepage" />
        </a>
        <section>
+                <div> <img src="<%= hike.image %>" alt="default hiking image" class="image" width="500" 
+                    height="500"/> </div>
+                <div>
+                    <h3>Hike Name: <%= hike.hikeName %> </h3>
+                </div>
+                <div>
+                    <h4>Location: <%= hike.location %> </h4>
+                </div>
+                <div>
+                    <h5>Hike Length: <%= hike.length %> </h5>
+                </div>
+                <div>
+                    <h5>Elevation Gain: <%= hike.elevationGain %> </h5>
+                </div>
+          </section>
     </Main>
 </body>
 </html>

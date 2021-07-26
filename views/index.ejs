@@ -31,7 +31,9 @@
         </section>
         <section>
             <div>
-                <h3>Hike Name: <%= hike.hikeName %> </h3>
+                <h3>
+                    <a href="/hikes/<%= hike.id %>"> <%= hike.hikeName %></a>
+                </h3>
             </div>
             <div>
                 <h4>Location: <%= hike.location %> </h4>

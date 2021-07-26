@@ -68,8 +68,11 @@ app.get("/hikes/:id", function (req, res, next){
             console.log(error);
             req.error = error;
             return next ();
+        }
+        const context = {
+        hike: foundHike,
         };
-    return res.send("You made it to the show route");
+        return res.render("show", context);
     });
 });
 
