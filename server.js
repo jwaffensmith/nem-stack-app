@@ -30,11 +30,6 @@ app.get("/", function (req,res){
 // Index GET 
 app.get("/hikes", function(req, res) {
     Hike.find({}, function (error, allHikes) {
-        if (error) {
-            console.log(error);
-            req.error = error;
-            return next();
-        }
         const context = {
             hikes: allHikes
         };
@@ -52,9 +47,18 @@ app.get("/hikes/new", function (req, res) {
 // Create POST /hikes
 // new hike should then post to page
 app.post("/hikes", function (req, res, next) {
-    console.log(req.body)
-    res.send("hitting create route");
-  });
+   Hike.create(req.body, function (error, createdHike) {
+    console.log(createdHike);
+    if (error) {
+        const context = {
+        error,
+    };
+    return res.render("new", context);
+   }
+   res.redirect("./hikes")
+//return res.redirect(`/hikes/${createdHike.id}`);
+   });
+});
 
 // Show GET /hikes/:id
 // show individual hikes once clicked
@@ -68,12 +72,11 @@ app.post("/hikes", function (req, res, next) {
 // user can delete hikes
 
 // 404
-/*
+
 app.get("/*", function (req, res){
-    const context = { error: req.error };
-    res.render("404", context);
+    res.send("Sorry, there has been an error.");
 });
-*/
+
 
 // Bind server to port
 app.listen(PORT, function () {

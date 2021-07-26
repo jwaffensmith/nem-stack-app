@@ -18,24 +18,29 @@
         <h1> Hiking Journal</h1>
     </header>
     <Main>
+        <div class="add-hikes">
+            <% for (let idx = 0; idx < hikes.length; idx++) { %> 
+                <% const hike = hikes[idx] %>
+        </div>
         <section>
-            <div> <img src="<%= hikes.image %>" alt="default hiking image" /> </div> 
+            <div> <img src="<%= hike.image %>" alt="default hiking image" /> </div> 
         </section>
         <section>
             <div>
-                <h3>Hike Name: <% hikes.hikeName %> </h3>
+                <h3>Hike Name: <%= hike.hikeName %> </h3>
             </div>
             <div>
-                <h4>Location: <% hikes.location %> </h4>
+                <h4>Location: <%= hike.location %> </h4>
             </div>
             <div>
-                <h5>Hike Length: <% hikes.length %> </h5>
+                <h5>Hike Length: <%= hike.length %> </h5>
             </div>
             <div>
-                <h5>Elevation Gain: <% hikes.elevationGain %> </h5>
+                <h5>Elevation Gain: <%= hike.elevationGain %> </h5>
             </div>
         </section>
         <a type="button" href="/hikes/new">Click Here to Add a Hike</a>
+    <% } %>
     </Main>
 </body>
 </html>
