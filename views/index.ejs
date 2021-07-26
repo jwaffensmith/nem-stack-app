@@ -5,11 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/main.css">
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous">
+    </script>
+    <script src="/scripts/main.js" defer></script>
     <title>Hiking Journal</title>
 </head>
 <body>
-    <h1>
-        Hiking Journal
-    </h1>
+     <header>
+        <h1> Hiking Journal</h1>
+    </header>
+    <Main>
+        <section>
+            <div> <img src="<%= hikes.image %>" alt="default hiking image" /> </div> 
+        </section>
+        <section>
+            <div>
+                <h3>Hike Name: <% hikes.hikeName %> </h3>
+            </div>
+            <div>
+                <h4>Location: <% hikes.location %> </h4>
+            </div>
+            <div>
+                <h5>Hike Length: <% hikes.length %> </h5>
+            </div>
+            <div>
+                <h5>Elevation Gain: <% hikes.elevationGain %> </h5>
+            </div>
+        </section>
+    </Main>
 </body>
 </html>
