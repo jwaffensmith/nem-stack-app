@@ -24,16 +24,17 @@
     <div class="add-hikes">
         <% for (let idx = 0; idx < hikes.length; idx++) { %> 
             <% const hike = hikes[idx] %>
-            <section>
-                <div> <img src="<%= hike.image %>" alt="default hiking image" class="image" width="300" 
-                    height="300"/> </div> 
-            </section>
+            
             <section>
                 <div>
                     <h3>
                         <a href="/hikes/<%= hike.id %>"> <%= hike.hikeName %></a>
                     </h3>
                 </div>
+                <section>
+                        <div> <img src="<%= hike.image %>" alt="default hiking image" class="image" width="300" 
+                            height="300"/> </div> 
+                </section>
                 <div>
                     <h4>Location: <%= hike.location %> </h4>
                 </div>
