@@ -61,7 +61,18 @@ app.post("/hikes", function (req, res, next) {
 });
 
 // Show GET /hikes/:id
-// show individual hikes once clicked
+// show individual hikes with Id
+app.get("/hikes/:id", function (req, res, next){
+    Hike.findById(req.params.id, function (error, foundHike){
+        if (error) {
+            console.log(error);
+            req.error = error;
+            return next ();
+        };
+    return res.send("You made it to the show route");
+    });
+});
+
 
 // Edit GET /hikes/:id/edit
 // user can edit hikes
@@ -70,6 +81,19 @@ app.post("/hikes", function (req, res, next) {
 
 // Destroy DELETE /hikes/:id
 // user can delete hikes
+
+/*
+app.delete("/:id", function (req, res, next){
+    Hike.findByIdAndDelete(req.params.id, function (error, deletedHike) {
+        if (error) {
+            console.log(error);
+            req.error = error;
+            return next();
+        }
+    return res.redirect("/hikes");
+    });
+});
+*/
 
 // 404
 
