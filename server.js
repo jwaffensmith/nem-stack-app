@@ -21,6 +21,11 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
+app.use(function (req, res, next){
+    console.log(`${req.url} - ${req.method} : ${new Date().toLocaleString()}`);
+    next();
+  });
+
 // Routes
 
 app.get("/", function (req,res){
