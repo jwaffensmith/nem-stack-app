@@ -76,9 +76,24 @@ app.get("/hikes/:id", function (req, res, next){
     });
 });
 
-
 // Edit GET /hikes/:id/edit
 // user can edit hikes
+
+app.get("/hikes/:id/edit", function (req, res, next){
+    Hike.findById(req.params.id, function (error, foundHike){
+        if (error) {
+            console.log(error);
+            req.error = error;
+            return next ();
+        }
+        return res.send("You made it to the edit page");
+        //const context = {
+        //hike: foundHike,
+        //};
+        //return res.render("edit", context);
+    });
+});
+
 
 // Update PUT /hikes/:id
 

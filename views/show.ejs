@@ -21,7 +21,7 @@
         <a href="/hikes">
             <input type="submit" value="Back to Homepage" />
        </a>
-       <section>
+        <section>
                 <div> <img src="<%= hike.image %>" alt="default hiking image" class="image" width="500" 
                     height="500"/> </div>
                 <div>
@@ -36,7 +36,15 @@
                 <div>
                     <h5>Elevation Gain: <%= hike.elevationGain %> </h5>
                 </div>
-          </section>
+        </section>
+        <div>
+                <a href="/hikes/<%= hike.id %>/edit">Edit Hike</a>
+        </div>
+        <div>
+            <form action="/hikes/<%= hike.id %>?_method=DELETE" method="POST">
+            <input type="submit" value="Delete Hike" />
+            </form>
+        </div>
     </Main>
 </body>
 </html>
