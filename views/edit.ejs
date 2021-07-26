@@ -18,6 +18,72 @@
         <h1> Edit Hike</h1>
     </header>
     <Main>
-      
+        <section>
+           
+            <form action= "/hikes/<%= hike.id %>?_method=PUT" method="POST" >
+                <% if (typeof error !== "undefined") { %>
+                    <p> Danger </p>
+                    <div>
+                        <%= error.message %>
+                    </div>
+              <%  } %>
+                <div> 
+                    <label for="hike-image" class="label">Add a Picture</label>
+                    <div class="field">
+                    <input 
+                      type="text" 
+                      class="input" 
+                      placeholder="http://" 
+                      name="image" 
+                      id="hike-image">
+                    </div>
+                    <div>
+                    <label for="hike-name" class="label">Hike Name</label>
+                    <div class="field">
+                        <input 
+                        type="text" 
+                        class="input" 
+                        placeholder="Hike name" 
+                        name="hikeName" 
+                        id="hike-name">
+                    </div>
+                    <label for="hike-location" class="label">Hike Location</label>
+                    <div class="field">
+                        <input 
+                        type="text" 
+                        class="input" 
+                        placeholder="Hike location" 
+                        name="location" 
+                        id="hike-location">
+                    </div>
+                    <label for="hike-length" class="label">Hike Length</label>
+                    <div class="field">
+                        <input 
+                            type="number" 
+                            class="input" 
+                            step="0.01"
+                            placeholder="Hike length" 
+                            name="length" 
+                            id="hike-length">
+                            <span>Miles</span>
+                    </div>
+                    <label for="hike-elevation" class="label">Hike Elevation Gain</label>
+                    <div class="field">
+                        <input 
+                            type="number" 
+                            class="input" 
+                            step="0.01"
+                            placeholder="Hike Elevation Gain" 
+                            name="elevationGain" 
+                            id="hike-elevation">
+                            <span>Miles</span>
+                    </div>
+                <div>
+                    <a href="/hikes/<%= hike.id %>"></a>
+                </div>
+                <button>Edit Hike</button>
+            </form>
+          </section>
+    </Main>
 </body>
 </html>

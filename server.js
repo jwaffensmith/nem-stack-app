@@ -86,11 +86,10 @@ app.get("/hikes/:id/edit", function (req, res, next){
             req.error = error;
             return next ();
         }
-        return res.send("You made it to the edit page");
-        //const context = {
-        //hike: foundHike,
-        //};
-        //return res.render("edit", context);
+        const context = {
+            hike: foundHike,
+        };
+        return res.render("edit", context);
     });
 });
 
@@ -100,8 +99,7 @@ app.get("/hikes/:id/edit", function (req, res, next){
 // Destroy DELETE /hikes/:id
 // user can delete hikes
 
-/*
-app.delete("/:id", function (req, res, next){
+app.delete("/hikes/:id", function (req, res, next){
     Hike.findByIdAndDelete(req.params.id, function (error, deletedHike) {
         if (error) {
             console.log(error);
@@ -111,7 +109,6 @@ app.delete("/:id", function (req, res, next){
     return res.redirect("/hikes");
     });
 });
-*/
 
 // 404
 
