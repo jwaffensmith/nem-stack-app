@@ -19,14 +19,20 @@ const hikeData = require("./db/seed");
 // Middleware
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 
 // Routes
 
-// Index GET /hikes
+// Index GET 
+app.get('/', function(req, res) {
+    res.send('<h1>Hikes will be posted here</h1>');
+  });
 
 // New GET /hikes/new
+// use should be able to add a new hike
 
 // Create POST /hikes
+// new hike should then post to page
 
 // Show GET /hikes/:id
 
@@ -36,6 +42,12 @@ app.use(express.urlencoded({ extended: true }));
 
 // Destroy DELETE /hikes/:id
 
+// 404
+
+app.get("/*", function (req, res){
+    const context = { error: req.error };
+    res.render("404", context);
+});
 
 // Bind server to port
 app.listen(PORT, function () {
