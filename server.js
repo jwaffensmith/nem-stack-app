@@ -96,6 +96,25 @@ app.get("/hikes/:id/edit", function (req, res, next){
 
 // Update PUT /hikes/:id
 
+app.put("/hikes/:id", function (req, res, next) {
+    Hike.findByIdAndUpdate(
+        req.params.id,
+        {
+            $set: req.body
+        },
+        {
+            new: true
+        },
+       function (error, updatedHike) {
+           if (error) {
+               console.log(error);
+               req.error = error;
+               return next();
+           }
+           return res.redirect(`/hikes/${updatedHike.id}`);
+    });
+});
+
 // Destroy DELETE /hikes/:id
 // user can delete hikes
 
