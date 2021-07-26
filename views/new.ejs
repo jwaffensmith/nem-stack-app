@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous">
+    </script>
+    <script src="/scripts/main.js" defer></script>
+    <title>Hiking Journal</title>
+</head>
+<body>
+     <header>
+        <h1> Add a New Hike Page</h1>
+    </header>
+    <Main>
+        <section>
+            <form action="/hikes" method="POST">
+                <% if (typeof error !== "undefined") { %>
+                    <p> Danger </p>
+                    <div>
+                        <%= error.message %>
+                    </div>
+              <%  } %>
+            <div> 
+                <label for="hike-image" class="label">Add a Picture</label>
+                <div class="field">
+                    <input 
+                      type="text" 
+                      class="input" 
+                      placeholder="http://" 
+                      name="image" 
+                      id="hike-image">
+                  </div>
+            <div>
+                <label for="hike-name" class="label">Hike Name</label>
+                <div class="field">
+                    <input 
+                      type="text" 
+                      class="input" 
+                      placeholder="Hike name" 
+                      name="hikeName" 
+                      id="hike-name">
+                </div>
+                <label for="hike-location" class="label">Hike Location</label>
+                <div class="field">
+                    <input 
+                      type="text" 
+                      class="input" 
+                      placeholder="Hike location" 
+                      name="location" 
+                      id="hike-location">
+                </div>
+                <label for="hike-length" class="label">Hike Length</label>
+                <div class="field">
+                      <input 
+                        type="number" 
+                        class="input" 
+                        placeholder="Hike length" 
+                        name="location" 
+                        id="hike-length">
+                </div>
+               <label for="hike-elevation" class="label">Hike Elevation Gain</label>
+                <div class="field">
+                      <input 
+                        type="number" 
+                        class="input" 
+                        placeholder="Hike Elevation Gain" 
+                        name="elevationGain" 
+                        id="hike-elevation">
+                </div>
+            </form>
+        </section>
+        <button>Add Hike</button>
+    </Main>
+</body>
+</html>

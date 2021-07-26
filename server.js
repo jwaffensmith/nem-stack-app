@@ -38,8 +38,12 @@ app.get("/", function(req, res) {
     });
 });
 
-// New GET /hikes/new
+// New GET /new
 // use should be able to add a new hike
+
+app.get("/new", function (req, res) {
+    return res.render("new");
+});
 
 // Create POST /hikes
 // new hike should then post to page
