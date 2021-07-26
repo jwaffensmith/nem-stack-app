@@ -22,10 +22,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 // Routes
+app.get('/', function(req, res) {
+    res.redirect("/hikes");
+  });
 
 // Index GET 
-app.get('/', function(req, res) {
-    res.send('<h1>Hikes will be posted here</h1>');
+app.get('/hikes', function(req, res) {
+    const allHikes = Hike.find();
+    return res.render("index");
   });
 
 // New GET /hikes/new
@@ -35,12 +39,15 @@ app.get('/', function(req, res) {
 // new hike should then post to page
 
 // Show GET /hikes/:id
+// show individual hikes once clicked
 
 // Edit GET /hikes/:id/edit
+// user can edit hikes
 
 // Update PUT /hikes/:id
 
 // Destroy DELETE /hikes/:id
+// user can delete hikes
 
 // 404
 
