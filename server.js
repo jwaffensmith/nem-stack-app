@@ -14,7 +14,7 @@ app.set("view engine", "ejs");
 
 // internal modules
 const { Hike } = require("./models");
-const hikeData = require("./db/seed");
+//const hikeData = require("./db/seed");
 
 // Middleware
 app.use(express.static("public"));
@@ -43,7 +43,7 @@ app.get("/hikes", function(req, res) {
 });
 
 // New GET /new
-// use should be able to add a new hike
+// user should be able to add a new hike
 
 app.get("/hikes/new", function (req, res) {
     return res.render("new");
@@ -60,8 +60,7 @@ app.post("/hikes", function (req, res, next) {
     };
     return res.render("new", context);
    }
-   res.redirect("./hikes")
-//return res.redirect(`/hikes/${createdHike.id}`);
+   res.redirect("/hikes")
    });
 });
 
@@ -98,8 +97,8 @@ app.get("/hikes/:id/edit", function (req, res, next){
     });
 });
 
-
 // Update PUT /hikes/:id
+// edit of hike is updated on index page
 
 app.put("/hikes/:id", function (req, res, next) {
     Hike.findByIdAndUpdate(
